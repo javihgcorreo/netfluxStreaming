@@ -1,0 +1,502 @@
+/* style.css */
+
+/* Reset básico para coherencia visual */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Tipografía - Sans-serif para legibilidad */
+    background-color: #141414; /* Color - Tema oscuro predominante */
+    color: #E5E5E5; /* Color - Texto blanco/gris claro para alto contraste */
+    line-height: 1.6;
+    overflow-x: hidden; /* Evitar scroll horizontal no deseado */
+}
+
+/* Cabecera (Header) - Diseño de Página, Coherencia, Jerarquía Visual */
+.main-header {
+    background-color: #0d0d0d; /* Fondo ligeramente más oscuro para la cabecera */
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fija la cabecera al scroll */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    color: #E50914; /* Color - Típico acento rojo de streaming */
+    font-size: 1.8rem; /* Tipografía - Tamaño prominente para el logo */
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-right: 1.5rem;
+}
+
+.main-nav ul li a {
+    color: #E5E5E5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a.active,
+.main-nav ul li a:hover {
+    color: #E50914; /* Color - Acento rojo para elementos activos/hover */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.search-box {
+    position: relative;
+    display: flex; /* Para alinear el input y el icono */
+    align-items: center;
+}
+
+.search-input {
+    background-color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: #E5E5E5;
+    width: 0; /* Inicialmente oculto */
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.search-input.active {
+    width: 200px; /* Ancho cuando está activo */
+    opacity: 1;
+    cursor: text;
+}
+
+.search-icon {
+    color: #E5E5E5;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px; /* Para hacer click más fácil */
+}
+
+.profile-menu {
+    position: relative;
+}
+
+.profile-icon {
+    font-size: 1.8rem;
+    color: #E5E5E5;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 4px;
+    min-width: 180px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 0;
+    z-index: 1001;
+}
+
+.profile-dropdown.active {
+    display: block;
+}
+
+.profile-dropdown a {
+    color: #E5E5E5;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+
+.profile-dropdown a:hover {
+    background-color: #333;
+    color: #E50914;
+}
+
+/* Contenido Principal (Main Content) - Diseño de Página, Equilibrio */
+.main-content {
+    padding-top: 5rem; /* Espacio para la cabecera fija */
+    padding-bottom: 3rem;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('https://via.placeholder.com/1500x600/111/fff?text=Contenido+Destacado') no-repeat center center/cover;
+    height: 600px; /* Altura del hero */
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.hero-section::before { /* Capa oscura para mejor contraste del texto */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.8) 100%);
+}
+
+.hero-content {
+    max-width: 50%;
+    position: relative; /* Para que el contenido esté sobre la capa oscura */
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3.5rem; /* Tipografía - Título muy grande y prominente */
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #FFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    color: #D3D3D3;
+}
+
+.hero-actions .btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #E50914; /* Color - Botón principal con acento */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #F40612;
+}
+
+.btn-secondary {
+    background-color: rgba(109, 109, 110, 0.7); /* Color - Botón secundario discreto */
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(109, 109, 110, 0.9);
+}
+
+/* Filas de Contenido / Carruseles - Diseño de Página, Gestalt */
+.content-row {
+    padding: 0 3rem;
+    margin-bottom: 3rem;
+}
+
+.content-row h2 {
+    font-size: 1.8rem; /* Tipografía - Títulos de sección */
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: scroll; /* Permite el desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* Para un scroll más suave y con puntos de anclaje */
+    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+    gap: 1rem; /* Espacio entre las miniaturas */
+    padding-bottom: 1rem; /* Espacio para la barra de scroll */
+}
+
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+.carousel::-webkit-scrollbar-track {
+    background-color: #222;
+}
+
+
+.carousel .item {
+    flex-shrink: 0; /* Previene que los items se encojan */
+    width: 300px; /* Ancho fijo para las miniaturas */
+    height: 170px;
+    background-color: #333;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    scroll-snap-align: start; /* Ayuda a que el scroll se detenga en los items */
+    transition: transform 0.2s ease;
+}
+
+.carousel .item:hover {
+    transform: scale(1.05); /* Efecto al pasar el ratón */
+    z-index: 10;
+}
+
+.carousel .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel .item .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background-color: #E50914; /* Color - Barra de progreso con acento */
+}
+
+/* Simulación de partial view para el principio de Continuidad */
+.carousel .partial-view {
+    /* Ajusta el tamaño para que solo se vea parcialmente */
+    width: 150px; /* Ej. la mitad de una miniatura */
+    opacity: 0.8; /* Sutilmente más tenue */
+}
+
+
+/* Pie de Página (Footer) */
+.main-footer {
+    background-color: #0d0d0d;
+    padding: 2rem 3rem;
+    text-align: center;
+    color: #A0A0A0; /* Color - Texto más tenue para el footer */
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #A0A0A0;
+    text-decoration: none;
+    margin: 0 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #E5E5E5;
+}
+
+/* ========================================================= */
+/* Estilos para otras páginas (ejemplo de estructura) */
+/* ========================================================= */
+
+/* Las páginas de Categorías, Búsqueda, Mi Lista, Perfiles
+   compartirían el header y footer y solo cambiarían el contenido de <main> */
+
+/* Ejemplo de la página de Categorías */
+.page-categories .main-content {
+    padding-top: 7rem; /* Más padding para dejar espacio si hay sub-navegación */
+}
+
+.category-filters {
+    padding: 0 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.category-filters a {
+    background-color: #222;
+    color: #E5E5E5;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.category-filters a.active,
+.category-filters a:hover {
+    background-color: #E50914; /* Color - Filtro activo con acento */
+    color: #fff;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Cuadrícula responsiva */
+    gap: 1.5rem;
+    padding: 0 3rem;
+}
+
+.content-grid .item {
+    width: auto; /* Ancho automático para la cuadrícula */
+    height: 150px;
+}
+
+/* Ejemplo de la página de Perfiles */
+.page-profiles .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 150px); /* Altura para centrar el contenido */
+    padding-top: 5rem;
+}
+
+.profile-selection {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.profile-card:hover {
+    transform: scale(1.05);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+    border: 2px solid transparent;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card:hover .profile-avatar {
+    border-color: #E5E5E5; /* Borde al pasar el ratón */
+}
+
+.profile-card span {
+    font-size: 1.2rem;
+    color: #E5E5E5;
+}
+
+.add-profile-btn {
+    background-color: #222;
+    border: 2px solid #555;
+    color: #555;
+    font-size: 4rem; /* Icono grande */
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-profile-btn:hover {
+    background-color: #333;
+    color: #E5E5E5;
+    border-color: #E5E5E5;
+}
+
+.manage-profiles-btn {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.manage-profiles-btn:hover {
+    background-color: rgba(109, 109, 110, 0.9);
+}
+
+/* Responsividad básica - Reglas de Diseño */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+    }
+    .main-nav ul li {
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .header-right {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 0.5rem;
+    }
+    .search-input.active {
+        width: 150px;
+    }
+    .hero-section {
+        height: 400px;
+        padding: 0 1.5rem;
+    }
+    .hero-content {
+        max-width: 80%;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-description {
+        font-size: 1rem;
+    }
+    .content-row, .main-footer, .category-filters, .content-grid {
+        padding: 0 1.5rem;
+    }
+    .carousel .item {
+        width: 200px; /* Miniaturas más pequeñas en móvil */
+        height: 112px;
+    }
+    .carousel .partial-view {
+        width: 100px;
+    }
+}
