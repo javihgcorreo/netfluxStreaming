@@ -32,7 +32,7 @@
                 <i class="fas fa-user-circle profile-icon"></i>
                 <div class="profile-dropdown">
                     <a href="#">Gestionar perfiles</a>
-                    <a href="#">Configuración de la cuenta</a>
+                    <a href="subscriptionPayment.html">Configuración de la cuenta de pago</a>
                     <a href="#">Cerrar sesión</a>
                 </div>
             </div>
@@ -64,6 +64,88 @@
                 <div class="item"><img src="https://via.placeholder.com/300x170/777/fff?text=Result+6" alt="Resultado 6"></div>
             </div>
         </section>
+
+        <div class="netflux-container search-container">
+        <div class="form-header">
+            <h1>Buscar Contenido</h1>
+        </div>
+
+        <div class="search-main">
+            <input type="text" id="main-search-input" placeholder="Buscar películas, series, géneros..." autocomplete="off">
+            <div id="autocomplete-suggestions" class="autocomplete-suggestions">
+                </div>
+            <button class="btn btn-primary search-button">Buscar</button>
+        </div>
+
+        <div class="toggle-filters">
+            <button id="toggle-filters-btn" class="btn btn-secondary">Mostrar Filtros Avanzados</button>
+        </div>
+
+        <form id="filters-form" class="netflux-form filters-hidden">
+            <div class="form-section-title">
+                <h2>Filtros Avanzados</h2>
+            </div>
+
+            <div class="form-group">
+                <label for="filter-genre">Género</label>
+                <select id="filter-genre" name="genre">
+                    <option value="">Todos los géneros</option>
+                    <option value="accion">Acción</option>
+                    <option value="comedia">Comedia</option>
+                    <option value="drama">Drama</option>
+                    <option value="ficcion">Ciencia Ficción</option>
+                    <option value="terror">Terror</option>
+                    <option value="documental">Documental</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filter-year">Año de Lanzamiento</label>
+                <select id="filter-year" name="year">
+                    <option value="">Cualquier año</option>
+                    <script>
+                        // Generar opciones de año dinámicamente
+                        const currentYear = new Date().getFullYear();
+                        for (let year = currentYear; year >= 1950; year--) {
+                            document.write(`<option value="${year}">${year}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filter-language">Idioma Original</label>
+                <select id="filter-language" name="language">
+                    <option value="">Cualquier idioma</option>
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                    <option value="fr">Francés</option>
+                    <option value="de">Alemán</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="filter-rating">Clasificación por Edad</label>
+                <select id="filter-rating" name="rating">
+                    <option value="">Todas</option>
+                    <option value="g">G (Para todos)</option>
+                    <option value="pg">PG (Supervisión parental)</option>
+                    <option value="pg13">PG-13 (Mayores de 13)</option>
+                    <option value="r">R (Restringido)</option>
+                    <option value="nc17">NC-17 (Solo adultos)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary apply-filters-btn">Aplicar Filtros</button>
+            <button type="button" class="btn btn-secondary clear-filters-btn">Limpiar Filtros</button>
+            <p class="form-message" id="filter-form-message"></p>
+        </form>
+
+        <div class="search-results">
+            <h2>Resultados de Búsqueda</h2>
+            <p id="results-display">No se han encontrado resultados o no se ha realizado ninguna búsqueda.</p>
+        </div>
+    </div>
     </main>
 
     <footer class="main-footer">
@@ -72,6 +154,7 @@
             <a href="#">Términos de Servicio</a>
             <a href="#">Política de Privacidad</a>
             <a href="#">Centro de Ayuda</a>
+            <a href="contactSupport.html">Contacto</a>
         </div>
         <p>&copy; 2023 Netflux. Todos los derechos reservados.</p>
     </footer>

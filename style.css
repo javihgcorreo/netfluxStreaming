@@ -290,15 +290,31 @@ body {
 
 /* Pie de Página (Footer) */
 .main-footer {
+    width: 100%;
     background-color: #0d0d0d;
-    padding: 2rem 3rem;
+    padding: 25px 20px;
     text-align: center;
     color: #A0A0A0; /* Color - Texto más tenue para el footer */
     font-size: 0.9rem;
+    display: flex;
+    flex-direction: column; /* Apila los enlaces y el párrafo verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center;
+    margin: 0 auto;
+    /* Asegúrate de que no haya floats o posicionamientos absolutos no deseados */
+    float: none;
+    position: static; /* O 'relative' si lo necesitas para hijos posicionados */
+    left: auto;
+    right: auto;
 }
 
 .footer-links {
-    margin-bottom: 1rem;
+     display: flex; /* Para que los enlaces estén en línea */
+    flex-wrap: column; /* Permite que los enlaces se envuelvan si hay muchos */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    gap: 15px; /* Espacio entre los enlaces */
+    margin-bottom: 10px; /* Espacio entre los enlaces y el párrafo de copyright */
+    align-items: center;
 }
 
 .footer-links a {
@@ -499,4 +515,619 @@ body {
     .carousel .partial-view {
         width: 100px;
     }
+
+    
+}
+/* Estilos específicos para el contenedor de perfil, ajustando el padding para más espacio */
+.netflux-container.profile-container {
+    padding: 40px 50px;
+    max-width: 600px; /* Un poco más ancho para el perfil */
+}
+
+/* Títulos de sección dentro del formulario de perfil */
+.form-section-title {
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    margin-top: 35px;
+}
+
+.form-section-title h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+/* Ajustes para las etiquetas */
+.netflux-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b3b3b3;
+    font-size: 0.95rem;
+}
+
+/* Estilos para campos de entrada y select (dropdowns) */
+.netflux-form input[type="text"],
+.netflux-form input[type="email"],
+.netflux-form select {
+    width: 100%;
+    padding: 12px 15px; /* Ligeramente menos padding para campos de perfil */
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    appearance: none; /* Elimina estilos por defecto de select en algunos navegadores */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Flecha para select */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+    cursor: pointer;
+}
+
+.netflux-form select option {
+    background-color: #333;
+    color: #fff;
+}
+
+.netflux-form input[type="text"]:focus,
+.netflux-form input[type="email"]:focus,
+.netflux-form select:focus {
+    outline: none;
+    background-color: #454545;
+    border: 1px solid #e50914; /* Borde rojo al enfocar */
+}
+
+/* Botón secundario para otras opciones */
+.btn-secondary {
+    background-color: #555; /* Un gris más oscuro */
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: block; /* Para que ocupen todo el ancho */
+}
+
+.btn-secondary:hover {
+    background-color: #666;
+}
+
+.more-options-section {
+    margin-top: 40px;
+}
+
+.more-options-links {
+    display: flex;
+    flex-direction: column; /* Apila los enlaces */
+    gap: 15px; /* Espacio entre los enlaces */
+}
+
+/* Estilos específicos para la página de búsqueda */
+.netflux-container.search-container {
+    padding: 40px 50px;
+    max-width: 800px; /* Un poco más ancho para la búsqueda */
+}
+
+/* Estilos de la barra de búsqueda principal */
+.search-main {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+    position: relative; /* Para posicionar las sugerencias de autocompletado */
+}
+
+#main-search-input {
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+#main-search-input::placeholder {
+    color: #8c8c8c;
+}
+
+#main-search-input:focus {
+    outline: none;
+    background-color: #454545;
+    border: 1px solid #e50914;
+}
+
+.search-button {
+    width: auto; /* Ancho automático para el botón de buscar */
+    padding: 16px 30px;
+    margin-top: 0; /* Anula el margen superior del .btn general */
+}
+
+/* Sugerencias de autocompletado */
+.autocomplete-suggestions {
+    position: absolute;
+    top: 100%; /* Debajo del input */
+    left: 0;
+    right: 0;
+    background-color: #222;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #444;
+}
+
+.autocomplete-suggestion-item {
+    padding: 10px 15px;
+    color: #fff;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+}
+
+.autocomplete-suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-suggestion-item:hover {
+    background-color: #444;
+}
+
+
+/* Botón para desplegar/ocultar filtros */
+.toggle-filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#toggle-filters-btn {
+    background-color: #555;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 50px; /* Botón más redondeado */
+    width: auto; /* Ancho ajustable al contenido */
+    margin-top: 0;
+    display: inline-block; /* Para que no ocupe todo el ancho */
+}
+
+#toggle-filters-btn:hover {
+    background-color: #666;
+}
+
+/* Contenedor de filtros, inicialmente oculto */
+.netflux-form.filters-hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+    padding: 0 15px; /* Padding inicial cero */
+    margin-top: 0; /* Margen inicial cero */
+    border-bottom: none; /* Sin borde inicial */
+}
+
+.netflux-form.filters-visible {
+    max-height: 500px; /* Altura suficiente para mostrar los filtros */
+    padding: 20px 15px 30px; /* Padding cuando visible */
+    margin-top: 20px; /* Margen superior cuando visible */
+    border-bottom: 1px solid #333; /* Borde inferior cuando visible */
+}
+
+/* Estilos de los selects en filtros */
+.netflux-form select {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+    cursor: pointer;
+}
+
+/* Botones de acción dentro del formulario de filtros */
+.apply-filters-btn, .clear-filters-btn {
+    width: auto;
+    display: inline-block;
+    margin-right: 15px;
+    padding: 12px 25px;
+    margin-top: 20px;
+}
+
+.clear-filters-btn {
+    background-color: #444; /* Un color distinto para limpiar */
+}
+
+.clear-filters-btn:hover {
+    background-color: #555;
+}
+
+/* Resultados de búsqueda */
+.search-results {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.search-results h2 {
+    color: #fff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+#results-display {
+    color: #b3b3b3;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Estilos específicos para el contenedor de suscripción y pago */
+.netflux-container.payment-container {
+    padding: 40px 50px;
+    max-width: 650px; /* Un poco más ancho para la información de pago */
+}
+
+/* Estilos para el resumen del plan actual */
+.current-plan-summary {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    color: #b3b3b3;
+    font-size: 1.1rem;
+}
+
+.current-plan-summary strong {
+    color: #fff;
+}
+
+/* Estilos para las tarjetas de selección de plan */
+.plan-options {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en líneas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    margin-bottom: 30px;
+    justify-content: center; /* Centra las tarjetas si hay espacio */
+}
+
+.plan-card {
+    background-color: #222;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33% - 20px); /* Aproximadamente 3 tarjetas por fila con espacio */
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Para posicionar el checkmark */
+}
+
+.plan-card:hover {
+    border-color: #555;
+}
+
+.plan-card input[type="radio"] {
+    position: absolute;
+    opacity: 0; /* Ocultar el radio button nativo */
+    width: 0;
+    height: 0;
+}
+
+.plan-card input[type="radio"]:checked + .plan-details {
+    border-color: #e50914; /* Resaltar borde cuando seleccionado */
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.5);
+}
+
+/* Flecha de selección para el plan card */
+.plan-card input[type="radio"]:checked + .plan-details::after {
+    content: '✓'; /* Un checkmark */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #e50914;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+.plan-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #b3b3b3;
+    width: 100%; /* Ocupa el ancho de la tarjeta */
+    border: 2px solid transparent; /* Para que no se mueva el contenido al seleccionar */
+    border-radius: 6px;
+    padding: 10px; /* Espacio interno para detalles */
+}
+
+.plan-details h3 {
+    color: #fff;
+    font-size: 1.3em;
+    margin: 0 0 5px;
+}
+
+.plan-details p {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.plan-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e50914;
+    margin-top: 10px;
+}
+
+/* Campos de formulario para la información de pago */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.form-group-half {
+    flex: 1; /* Para que ocupen la mitad del espacio */
+}
+
+/* Ajustes para el botón de cancelar cambio de plan */
+.cancel-change-btn {
+    width: auto;
+    display: inline-block;
+    margin-left: 15px;
+    background-color: #444;
+}
+
+.cancel-change-btn:hover {
+    background-color: #555;
+}
+
+/* Clases para ocultar/mostrar formularios */
+.form-hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-out, opacity 0.7s ease-out;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+
+.form-visible {
+    max-height: 1000px; /* Suficientemente grande para contener el formulario */
+    opacity: 1;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    transition: max-height 0.7s ease-in, opacity 0.7s ease-in;
+}
+
+/* Estilos para el historial de pagos */
+.payment-history-summary {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 25px;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+.payment-history-summary .btn {
+    width: auto; /* Ancho ajustado al contenido */
+    display: inline-block;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .plan-card {
+        width: calc(50% - 15px); /* 2 tarjetas por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .plan-card {
+        width: 100%; /* 1 tarjeta por fila en pantallas pequeñas */
+    }
+    .form-row {
+        flex-direction: column; /* Apila los campos en pantallas pequeñas */
+        gap: 0;
+    }
+}
+
+/* Estilos específicos para el contenedor de contacto */
+.netflux-container.contact-container {
+    padding: 40px 50px;
+    max-width: 600px;
+}
+
+.form-description {
+    color: #b3b3b3;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* Estilos para el área de texto (mensaje) */
+.netflux-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 120px; /* Altura mínima */
+}
+
+.netflux-form textarea:focus {
+    outline: none;
+    background-color: #454545;
+    border: 1px solid #e50914;
+}
+
+/* Información de contacto adicional */
+.contact-info {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: #b3b3b3;
+}
+
+.contact-info h3 {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.text-link {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #141414; /* Fondo oscuro tipo Netflux */
+    /* Eliminamos display: flex, justify-content y align-items de aquí */
+    min-height: 100vh; /* Para que el body ocupe al menos el 100% de la altura de la vista */
+    margin: 0; /* Asegura que no haya márgenes por defecto en el body */
+    color: #fff;
+    box-sizing: border-box; /* Muy importante para que padding y border no sumen al ancho total */
+}
+
+.netflux-container {
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo semitransparente para el formulario */
+    padding: 60px 68px 40px;
+    border-radius: 4px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.form-header h1 {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.netflux-form .form-group {
+    margin-bottom: 16px;
+}
+
+.netflux-form input[type="email"],
+.netflux-form input[type="password"] {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box; /* Incluir padding en el ancho total */
+}
+
+.netflux-form input::placeholder {
+    color: #8c8c8c;
+}
+
+.netflux-form input:focus {
+    outline: none;
+    background-color: #454545;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #e50914; /* Rojo distintivo de Netflux */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #f40612;
+}
+
+.form-message {
+    color: #e87c03; /* Color para mensajes de error */
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #8c8c8c;
+}
+
+.form-footer p {
+    margin-bottom: 15px;
+}
+
+.form-footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.small-text {
+    font-size: 0.8rem;
+    color: #8c8c8c;
+}
+
+.sr-only { /* Para accesibilidad: esconde el label visualmente pero lo mantiene para lectores de pantalla */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }

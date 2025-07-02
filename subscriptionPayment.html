@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflux - Suscripción y Pago</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="netflux-container payment-container">
+        <div class="form-header">
+            <h1>Gestión de Suscripción y Pago</h1>
+        </div>
+
+        <div class="form-section-title">
+            <h2>Mi Plan Actual</h2>
+        </div>
+        <div class="current-plan-summary">
+            <p>Plan actual: <strong id="current-plan-display">Standard</strong></p>
+            <p>Precio mensual: <strong id="current-price-display">9.99€</strong></p>
+            <p>Próximo cobro: <strong id="next-billing-date">15 de Julio de 2025</strong></p>
+        </div>
+        <button type="button" class="btn btn-secondary" id="change-plan-btn">Cambiar Plan</button>
+
+        <form id="plan-selection-form" class="netflux-form form-hidden">
+            <div class="form-section-title">
+                <h2>Seleccionar Nuevo Plan</h2>
+            </div>
+            <div class="plan-options">
+                <label class="plan-card">
+                    <input type="radio" name="subscription_plan" value="basic" data-price="7.99">
+                    <span class="plan-details">
+                        <h3>Básico</h3>
+                        <p>Calidad: Buena</p>
+                        <p>Resolución: 480p</p>
+                        <p>Dispositivos: 1</p>
+                        <span class="plan-price">7.99€/mes</span>
+                    </span>
+                </label>
+                <label class="plan-card">
+                    <input type="radio" name="subscription_plan" value="standard" data-price="9.99">
+                    <span class="plan-details">
+                        <h3>Estándar</h3>
+                        <p>Calidad: Muy buena</p>
+                        <p>Resolución: 1080p</p>
+                        <p>Dispositivos: 2</p>
+                        <span class="plan-price">9.99€/mes</span>
+                    </span>
+                </label>
+                <label class="plan-card">
+                    <input type="radio" name="subscription_plan" value="premium" data-price="12.99">
+                    <span class="plan-details">
+                        <h3>Premium</h3>
+                        <p>Calidad: Óptima</p>
+                        <p>Resolución: 4K+HDR</p>
+                        <p>Dispositivos: 4</p>
+                        <span class="plan-price">12.99€/mes</span>
+                    </span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Confirmar Cambio de Plan</button>
+            <button type="button" class="btn btn-secondary cancel-change-btn">Cancelar</button>
+            <p class="form-message" id="plan-message"></p>
+        </form>
+
+        <form id="payment-info-form" class="netflux-form">
+            <div class="form-section-title">
+                <h2>Información de Pago</h2>
+            </div>
+            <div class="form-group">
+                <label for="card-number">Número de Tarjeta</label>
+                <input type="text" id="card-number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" required pattern="[0-9]{13,16}" title="Número de tarjeta de 13 a 16 dígitos" autocomplete="cc-number">
+            </div>
+            <div class="form-row">
+                <div class="form-group form-group-half">
+                    <label for="expiry-date">Fecha de Vencimiento (MM/AA)</label>
+                    <input type="text" id="expiry-date" name="expiry_date" placeholder="MM/AA" required pattern="(0[1-9]|1[0-2])\/([0-9]{2})" title="Formato MM/AA">
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="XXX" required pattern="[0-9]{3,4}" title="CVV de 3 o 4 dígitos" autocomplete="cc-csc">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="card-name">Nombre en la Tarjeta</label>
+                <input type="text" id="card-name" name="card_name" placeholder="Como aparece en la tarjeta" required autocomplete="cc-name">
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar Método de Pago</button>
+            <p class="form-message" id="payment-message"></p>
+        </form>
+
+        <div class="form-section-title more-options-section">
+            <h2>Historial de Pagos</h2>
+        </div>
+        <div class="payment-history-summary">
+            <p>Aquí puedes ver tus últimas transacciones.</p>
+            <a href="#" class="btn btn-secondary" id="view-history-btn">Ver historial completo</a>
+            </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

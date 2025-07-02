@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflux - Acceso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="netflux-container">
+        <div class="form-wrapper">
+            <div class="form-header">
+                <h1 id="form-title">Iniciar Sesión</h1>
+            </div>
+            <form id="access-form" class="netflux-form">
+                <div class="form-group">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="sr-only">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required autocomplete="current-password">
+                </div>
+                <div class="form-group" id="confirm-password-group" style="display: none;">
+                    <label for="confirm-password" class="sr-only">Confirmar Contraseña</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Contraseña" autocomplete="new-password">
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit-btn">Iniciar Sesión</button>
+                <p class="form-message" id="form-message"></p>
+            </form>
+            <div class="form-footer">
+                <p id="toggle-text">¿No tienes cuenta? <a href="#" id="toggle-link">Regístrate ahora</a>.</p>
+                <p class="small-text">Esta página está protegida por reCAPTCHA para asegurar que no eres un robot. <a href="#">Más información.</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
